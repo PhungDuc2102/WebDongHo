@@ -1,0 +1,68 @@
+﻿@using WebBanDongHo.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<MauSac>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Quản lý màu sắc</h2>
+<div class="page-wrapper">
+    <table width="100" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+            <tr>
+                <th>
+                    Mã màu
+                </th>
+                <th>
+                    Tên màu
+                </th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="odd gradeX">
+
+                    <td>
+                        @item.MaMau
+                    </td>
+                    <td>
+
+                        @item.TenMau
+                    </td>
+
+                    <td>
+
+                        <a href="@Url.Action("Editmau", new { id = int.Parse(item.MaMau) })" class="btn btn-primary">
+                            Sửa
+                        </a>
+                        <a href="@Url.Action("Deletemau", new { id = int.Parse(item.MaMau) })" class="btn btn-danger">
+                            Xóa
+                        </a>
+                    </td>
+                </tr>
+            }
+    </table>
+    <a href="@Url.Action("Createmau", "MauSac") " class="btn btn-success">
+        Thêm Màu
+    </a>
+
+
+</div>
+<footer>
+    <div class="MenuTrang" style="text-align:center;">
+        trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action
+                      ("Index", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>
+

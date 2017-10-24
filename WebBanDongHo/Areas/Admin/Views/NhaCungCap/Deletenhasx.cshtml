@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Deletenhasx";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+<fieldset>
+    <legend><font color=red>  Bạn có thật sư muốn xóa!</font>    </legend>
+    <div class="display-lable"> Mã nhà sản xuất :@Model.MaNhaSanXuat</div>
+    <div class="display-lable"> Tên nhà sản xuất :@Model.TenNhaSanXuat</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index","NhaCungCap")" class="btn btn-primary">
+            Trở Về
+        </a>
+    </p>
+}
+

@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Createloai";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+
+            Mã loại :
+            @Html.TextBox("MaLoai")<font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+
+            Tên loại :
+            @Html.TextBox("TenLoai")<font color=red>
+                @ViewData["loi1"]
+            </font>
+        </p>
+        <p>
+            <button type="submit" class="btn btn-success">Tạo Mới</button>
+            <a href="@Url.Action("Index","LoaiDongHo")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </p>
+    </fieldset>
+
+}
+

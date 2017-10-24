@@ -1,0 +1,10 @@
+﻿@model IEnumerable<WebBanDongHo.Models.NhaSanXuat>
+<p class="lead">THƯƠNG HIỆU</p>
+<div class="list-group">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Sptheonhasx", "BanDongHo", new { id = int.Parse(item.MaNhaSanXuat) })" class="list-group-item">
+            @item.TenNhaSanXuat
+        </a>
+    }
+</div>

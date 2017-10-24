@@ -1,0 +1,55 @@
+﻿@using WebBanDongHo.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DongHo>
+@{
+    ViewBag.Title = "KetQuaTimKiem";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h3 style="text-align:center; color:black; font-style:inherit">Kết quả tìm kiếm</h3>
+@*<h2 style="color:red;text-align:center">@ViewBag.Thongbao</h2>*@
+<div class="row" style="text-align:center">
+    @foreach (var dongho in Model)
+    {
+
+        <div class="col-sm-4 col-lg-4 col-md-4" style="width:270px">
+            <div class="thumbnail " style="width:250px">
+                <a href="@Url.Action("Chitiet", "BanDongHo", new { id = int.Parse(dongho.MaDongHo) })">
+                    <img alt="@dongho.TenDongHo" src="~/Hinhsanpham/@dongho.HinhAnh" style="width:300px" />
+                    <div>
+
+                        <h4 style="text-align:center">
+                            @dongho.TenDongHo
+
+                        </h4>
+                        <p></p>
+                    </div>
+                </a>
+                <div>
+
+
+                    <h4 style="text-align: center; color: #FF0000">  Giá: @dongho.GiaBan VNĐ </h4>
+
+
+                    <p></p>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
+<footer>
+    <div class="MenuTrang" style="text-align:center;">
+        trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action
+                ("KetQuaTimKiem", new { page = page, @txttimkiem = ViewBag.TuKhoa })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>
+

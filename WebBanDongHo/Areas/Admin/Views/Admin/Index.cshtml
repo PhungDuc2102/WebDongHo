@@ -1,0 +1,101 @@
+﻿@using WebBanDongHo.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<DongHo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Sản phẩm mới</h2>
+<div class="page-wrapper">
+    <table width="100" class="table table-striped table-bordered table-hover" id="dataTables-example">
+        <thead>
+            <tr>
+
+                <th>
+                    Tên Đồng Hồ
+                </th>            
+                <th>
+                    Thương Hiệu
+                </th>
+                <th>
+                    Loại đồng hồ
+                </th>
+                <th>
+                    Hình Ảnh
+                </th>
+                <th>
+                    Màu sắc
+                </th>
+                <th>
+                    Chất liệu
+                </th>
+                <th>
+                    Giá bán
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="odd gradeX">
+
+                    <td>
+                        @item.TenDongHo
+                    </td>                   
+                    <td>
+                        @item.NhaSanXuat.TenNhaSanXuat
+                    </td>
+                    <td>
+                        @item.LoaiDongHo.TenLoai
+                    </td>
+                    <td>
+
+                        <img src="~/Hinhsanpham/@item.HinhAnh" width="100">
+                    </td>
+                    <td>
+                        @item.MauSac.TenMau
+                    </td>
+                    <td>
+                        @item.ChatLieu.TenChatLieu
+                    </td>
+                    <td>
+                        @item.GiaBan VNĐ
+                    </td>
+                    
+
+                    @*<td>
+
+                        <a href="@Url.Action("Editdonghonam", new { id = int.Parse(item.MaDongHo) })" class="btn btn-primary">
+                            Sửa
+                        </a>
+                        <a href="@Url.Action("Detailsdonghonam", new { id = int.Parse(item.MaDongHo) }) " class=" btn btn-primary">
+                            Chi tiết
+                        </a>
+                        <a href="@Url.Action("Deletedonghonam", new { id = int.Parse(item.MaDongHo) })" class="btn btn-danger">
+                            Xóa
+                        </a>
+                    </td>*@
+                </tr>
+            }
+    </table>
+    <a href="@Url.Action("Createdongho", "Admin") " class="btn btn-success">
+        Thêm sản phẩm
+    </a>
+
+
+</div>
+<footer>
+    <div class="MenuTrang" style="text-align:center;">
+        trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount
+        @Html.PagedListPager(Model, page => Url.Action
+             ("Index", new { page = page })) <br />
+    </div>
+    <style>
+        .MenuTrang li {
+            display: inline;
+        }
+    </style>
+
+</footer>

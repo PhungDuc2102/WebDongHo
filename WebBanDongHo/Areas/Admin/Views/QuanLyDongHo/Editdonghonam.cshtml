@@ -1,0 +1,73 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<h2>Chỉnh Sửa Sản Phẩm</h2> @using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+
+            Mã Màu :
+            @Html.DropDownList("MaMau")<font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+            Mã Chất Liệu :
+            @Html.DropDownList("MaChatLieu")  <font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+            Mã Nhà Sản Xuất:
+            @Html.DropDownList("MaNhaSanXuat")  <font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+            Tên giày :
+            @Html.TextBox("TenDongHo") <font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+            Ảnh :
+
+            <input type="file" name="HinhAnh" /> <font color=red>
+
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+            Mô tả :
+            <br />
+            <textarea id="TextArea1" rows="5" cols="40" name="MoTa"></textarea><font color=red>
+                @*<textarea id="TextArea1" rows="5" cols="40" @Html.TextArea("MoTa") />*@
+            </font>
+        </p>
+
+        <p>
+            Giá bán :
+            @Html.TextBox("GiaBan") <font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+
+        <p>
+            Ngày cập nhật :
+            <input type="date" name="ngaycapnhat" />
+            <font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="@Url.Action("donghonam","QuanLyDongHo")class=" btn btn-primary">
+                Trở Về
+            </a>
+        </p>
+    </fieldset>
+}
+

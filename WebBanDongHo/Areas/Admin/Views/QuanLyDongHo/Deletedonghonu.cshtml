@@ -1,0 +1,79 @@
+﻿
+@{
+    ViewBag.Title = "Deletedonghonu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<legend><font color=red>  Bạn có thật sư muốn xóa!</font></legend>
+<div class="col-sm-4 col-lg-4 col-md-4" style="text-align:left">
+    <div class="thumbnail">
+        <img alt="@Model.TenDongHo" src="~/Hinhsanpham/@Model.HinhAnh" height="300" width="330" />
+    </div>
+    @*<div class="thumbnail">*@
+    <div id="Mota" class="tab-pane fade in active">
+        @*Mô tả: @Model.MoTa*@
+        <p style="text-align:justify"><span style="font-weight:bold">Mô tả: </span>@Model.MoTa</p>
+
+    </div>
+</div>
+<div>
+    @*<h3 style="text-align:left">
+            Thông Tin Sản Phẩm
+        </h3>*@
+    <br />
+    <h4 style="text-align:left">
+        Mã đồng hồ: @Model.MaDongHo
+
+    </h4>
+    <h4 style="text-align:left">
+        Tên đồng hồ: @Model.TenDongHo
+
+    </h4>
+    <h4 style="text-align:left">
+        Thương hiệu :@Model.NhaSanXuat.TenNhaSanXuat
+
+    </h4>
+    <h4 style="text-align:left">
+        @Model.LoaiDongHo.TenLoai
+        @Model.LoaiDongHo.MaLoai
+    </h4>
+    <hr />
+
+</div>
+<div>
+    <h4 style="text-align: left ">
+        Màu:
+        @Model.MauSac.TenMau
+        @*<br />
+            Chất liệu:
+            @Model.ChatLieu.TenChatLieu
+            <br />
+            Ngày cập nhật:
+            @Model.NgayCapNhat
+        *@
+    </h4>
+    <h4 style="text-align: left ">
+        Chất liệu:
+        @Model.ChatLieu.TenChatLieu
+    </h4>
+    <h4 style="text-align: left ">
+        Ngày cập nhật:
+        @Model.NgayCapNhat
+    </h4>
+    <p></p>
+
+    <h4 style="text-align: left ; color: #FF0000">
+        Giá  @Model.GiaBan VNĐ
+    </h4>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a href="@Url.Action("donghonu","QuanLyDongHo")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </p>
+    }
+
+</div>
+

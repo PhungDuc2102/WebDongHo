@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Createcl";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+
+            Mã chất liệu :
+            @Html.TextBox("MaChatLieu")<font color=red>
+                @ViewData["loi"]
+            </font>
+        </p>
+        <p>
+
+            Tên chất liệu :
+            @Html.TextBox("TenChatLieu")<font color=red>
+                @ViewData["loi1"]
+            </font>
+        </p>
+        <p>
+            <button type="submit" class="btn btn-success">Tạo Mới</button>
+            <a href="@Url.Action("Index","ChatLieu")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </p>
+    </fieldset>
+}
+

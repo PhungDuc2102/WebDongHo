@@ -1,0 +1,283 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @*<meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>*@
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1">*@
+    <meta name="description" content="">
+    <meta name="author" content="">
+    @*<title>Shop Homepage - Start Bootstrap Template</title>*@
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="~/Content/shop-homepage.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <style>
+        .navbar-inverse {
+            background-color: #4CCFC1;
+            border-color: #4CCFC1;
+        }
+
+        /*.container {
+            background-color: #4CCFC1;
+            height: 55px;
+        }*/
+
+        .col-md-12 {
+            background-color: white;
+        }
+
+        .bit {
+            display: block;
+            font-size: 1.2em;
+        }
+
+            .bit p:hover {
+                color: gray;
+            }
+
+        .carousel-inner {
+            width: 100%;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*<a class="navbar-brand" href="#">Start Bootstrap</a>*@
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a class="bit" href="@Url.Action("Index","BanDongHo")" style="color:ghostwhite; ">
+                            <p>Trang Chủ</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="bit" href="@Url.Action("donghonam","BanDongHo")" style="color:ghostwhite; "><p>Đồng Hồ Nam</p></a>
+                        
+                    </li>
+                    <li>
+                        <a class="bit" href="@Url.Action("donghonu","BanDongHo")" style="color:ghostwhite; "><p>Đồng Hồ Nữ</p></a>
+                    </li>
+                    <li>
+                        <a class="bit" href="@Url.Action("Contact","BanDongHo")" style="color:ghostwhite; ">
+                            <p>Liên Hệ</p>
+                        </a>
+                    </li>
+                    <li>
+                        @Html.Action("GioHangPartial", "GioHang") 
+                    </li>
+
+                </ul>
+                <div id="txttimkiem" class="navbar-form navbar-right">
+                    @using (Html.BeginForm("KetQuaTimKiem", "TimKiem", FormMethod.Post))
+                    {
+                        <form class="navbar-form navbar-right">
+                            <input type="text" placeholder="Nhập từ khóa tìm kiếm" name="txttimkiem" class="form-control">
+                            <button type="submit" class="btn btn-info">
+                                <span class="glyphicon glyphicon-search"></span> Tìm Kiếm
+                            </button>
+
+                        </form>
+                    }
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="@Url.Action("Dangky","Nguoidung")" style="color:black"><span class="glyphicon glyphicon-user">  </span> Đăng Ký</a></li>
+                    <li><a href="@Url.Action("Dangnhap","Nguoidung")" style="color:black"><span class="glyphicon glyphicon-log-in"></span> Đăng Nhập</a></li>                 
+                </ul>
+                            
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- /.container -->
+    </nav>
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row carousel-holder">
+                    <div class="col-md-12">
+                        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                            </ol>
+
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img class="slide-image" src="~/images/slide1.jpg" style="height:400px; text-align:center" alt="">
+                                    <div class="carousel-caption ">
+
+                                        <h3 style="color: yellow "> <strong>Hỗ Trợ Nhiệt Tình  </strong> </h3>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="~/images/slide2.jpg" style="height:400px; text-align:center" alt="">
+                                    <div class="carousel-caption">
+
+                                        <h3 style="color:yellow"> <strong>Phục Vụ Chu Đáo </strong> </h3>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="slide-image" src="~/images/slide3.jpg" style="height:400px; text-align:center" alt="">
+                                    <div class="carousel-caption">
+
+                                        <h3 style="color:red"> <strong> Cập Nhật Mẫu Mới </strong> </h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <br/>
+                    @Html.Action("Nhasanxuat", "BanDongHo")
+                    <br />
+                    
+                    <img class="slide-image" src="~/images/theloai3.png" style="height:350px; text-align:center" alt="">                  
+                </div>
+
+                <div class="row">
+                    @*<h3 style="text-align:center; color:red">SẢN PHẨM MỚI</h3>*@<h3 style="text-align:center; color:red"></h3>
+                    <div>
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+    <div class="container" style="background-color:ghostwhite">
+        <footer id="footer">
+                <!--Footer-->
+                <div class="footer-widget">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="single-widget">
+                                    <h3>Thông tiên liên hệ</h3>
+
+                                    <p>Mail: phungduc@gmail.com</p>
+
+                                    <p>Giờ Mở Cửa: 8h - 22h | Hotline: 1900.6777</p>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#">Showroom Tân Bình</a></li>
+                                        <p>
+                                            160 Âu Cơ, P.9, Q.Tân Bình – TPHCM. <br />Phân Phối: Citizen, Casio, TiTan, Skagen, Seiko,
+                                            OP, Orient, Adriatica, Police, Timex, Daniel Wellington.
+                                        </p>
+                                        <li><a href="#">Showroom Quận 1</a></li>
+                                        <p>
+                                            190D Trần Quang Khải, P.Tân Định, Q.1 <br />Phân Phối: Citizen, Casio, TiTan, Skagen,
+                                            Pulsar, Seiko, OP, Police, Orient, Romanson, Candino, Michael Kors, Daniel Wellington.
+                                        </p>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="single-widget">
+                                    <h3>Menu</h3>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="@Url.Action("Index","BanDongHo")">Trang chủ</a></li>
+                                    </ul>
+                                    <h3>Tham khảo</h3>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        @*<li><a href="#"></a></li>*@
+                                        <li><a href="#">Thông báo mới</a></li>
+                                        <li><a href="#">Chính sách đổi hàng</a></li>
+                                        <li><a href="#">Chính sách bảo hành</a></li>
+                                        <li><a href="#">Thông tin chuyển khoản</a></li>
+
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="single-widget">
+                                    <h3>Tài khoản</h3>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        @*<li><a href="#"></a></li>*@
+                                        <li><a href="@Url.Action("Dangnhap","Nguoidung")">Đăng nhập</a></li>
+                                        <li><a href="@Url.Action("Dangky","Nguoidung")">Đăng kí</a></li>
+                                    </ul>
+                                    <h3>Dịch vụ khách hàng</h3>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        @*<li><a href="#"></a></li>*@
+                                        <li><a href="#">Giải đáp thắc mác</a></li>
+                                        <li><a href="@Url.Action("Contact","BanDongHo")">Liên hệ</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="single-widget">
+                                    <h3>CHỨNG NHẬN</h3>
+                                    <ul class="nav nav-pills nav-stacked">
+                                        <li><a href="#"><img src="~/images/ifame5.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="~/images/ifame6.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="~/images/ifama7.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="~/images/ifame8.png" alt="" /></a></li>
+                                        <li><a href="#"><img src="~/images/ifame9.png" alt="" /></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <div class="container">
+                        <div class="row">
+                            <p class="pull-left"> Đồng Hồ® Since 1991.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </footer>
+            <!--/Footer-->
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <!-- /.container -->
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+</body>
+</html>

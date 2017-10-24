@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewBag.Title = "Editcl";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2> 
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+            Mô tả kích thước :
+            @Html.TextBox("TenChatLieu")  <font color=red>
+                @ViewData["loi1"]
+            </font>
+        </p>
+        <P>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="@Url.Action("Index","ChatLieu")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </P>
+    </fieldset>
+}
+

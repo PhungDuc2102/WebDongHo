@@ -1,0 +1,85 @@
+﻿<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+    #Datmua a {
+        clear: both;
+        background-color: red;
+        color: white;
+        width: 120px;
+        height: 35px;
+        display: block;
+        float: right;
+        text-align: center;
+        padding-top: 10px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+        #Datmua a:hover {
+            background-color: gray;
+            color: red;
+        }
+</style>
+@{
+    ViewBag.Title = "Chitiet";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<div class="col-sm-4 col-lg-4 col-md-4" style="text-align:left">
+    <div class="thumbnail">
+        <img alt="@Model.TenDongHo" src="~/Hinhsanpham/@Model.HinhAnh" height="300" width="330" />
+    </div>
+    @*<div class="thumbnail">*@
+    <div id="Mota" class="tab-pane fade in active">
+        @*Mô tả: @Model.MoTa*@
+        <p style="text-align:justify"><span style="font-weight:bold">Mô tả: </span>@Model.MoTa</p>
+    </div>
+</div>
+<div>
+    <h3 style="text-align:left">
+        Thông Tin Sản Phẩm
+    </h3>
+    <br />
+    <h4 style="text-align:left">
+        Mã đồng hồ: @Model.MaDongHo
+
+    </h4>
+    <h4 style="text-align:left">
+        Tên đồng hồ: @Model.TenDongHo
+
+    </h4>
+    <h4 style="text-align:left">
+        Thương hiệu :@Model.NhaSanXuat.TenNhaSanXuat
+
+    </h4>
+    <h4 style="text-align:left">
+        @Model.LoaiDongHo.TenLoai
+    </h4>
+    <hr />
+
+</div>
+<div>
+    <h4 style="text-align: left ">
+        Màu:
+        @Model.MauSac.TenMau
+        <br />
+    </h4>
+    <h4 style="text-align:left">
+        Chất liệu:
+        @Model.ChatLieu.TenChatLieu
+
+    </h4>
+    <p></p>
+
+    <h4 style="text-align: left ; color: #FF0000">
+        Giá  @Model.GiaBan VNĐ
+    </h4>
+
+    <div style="text-align:left">
+        <a href="@Url.Action("themgiohang","GioHang",new { @imadongho=int.Parse(@Model.MaDongHo),@strUrl=Request.Url.ToString()})" style="font-size:24px" class="btn btn-outline btn-primary">
+            Thêm Vào Giỏ Hàng <i class="fa fa-cart-plus"></i>
+        </a>
+    </div>
+    <p></p>
+</div>
+

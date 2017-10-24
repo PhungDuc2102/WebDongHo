@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Editmau";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2> @using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+            Tên màu :
+            @Html.TextBox("TenMau")  <font color=red>
+                @ViewData["loi1"]
+            </font>
+        </p>
+        <p>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="@Url.Action("Index","MauSac")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </p>
+    </fieldset>
+}
+

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Editnhasx";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Edit</h2> 
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <p>
+            Tên nhà sản xuất :
+            @Html.TextBox("TenNhaSanXuat")  <font color=red>
+                @ViewData["loi1"]
+            </font>
+        </p>
+        <P>
+            <button type="submit" class="btn btn-primary">Save</button>
+            <a href="@Url.Action("Index","NhaCungCap")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </P>
+
+    </fieldset>
+}
+

@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Deletecl";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Delete</h2>
+<fieldset>
+    <legend><font color=red>  Bạn có thật sư muốn xóa!</font>    </legend>
+    <div class="display-lable"> Mã chất liệu :@Model.MaChatLieu</div>
+    <div class="display-lable"> Tên chất liệu  :@Model.TenChatLieu</div>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a href="@Url.Action("Index","ChatLieu")" class="btn btn-primary">
+            Trở Về
+        </a>
+    </p>
+}
+

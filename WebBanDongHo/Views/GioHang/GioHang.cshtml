@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h2 style="text-align:center">Thông Tin Giỏ Hàng</h2>
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr style="text-align:center;font-weight:bold">
+                    <td>Ảnh Sản Phẩm</td>
+                    <td>Tên đồng hồ</td>
+                    <td>Mã đồng hồ</td>
+                    <td>Số lượng</td>
+                    <td>Đơn giá</td>
+                    <td>Tổng Cộng</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr style="text-align:center;font-weight:bold">
+                        <td><img src="~/Hinhsanpham/@item.Anh" style="width:67px;height:67px" /></td>
+                        <td>@item.iTenDongHo</td>
+                        <td>@item.iMaDongHo</td>
+
+                        @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { iMaSP = int.Parse(item.iMaDongHo) }))
+                        {
+                            <td>
+                                <input type="number" min="1" name="txtSoLuong" value="@item.isoluong" style="background-color: lightyellow ;width:46.4px; height: 32px" />
+                            </td>
+                            <td>@item.idongia,000</td>
+                            <td>@item.thanhtien,000</td>
+                            <td><a href="@Url.Action("Chitiet","BanDongHo",new {id =int.Parse(item.iMaDongHo)})" class="btn btn-primary">Chi tiết</a></td>
+                            <td><a href="@Url.Action("XoaGioHang", "GioHang", new { @iMaSP = int.Parse(item.iMaDongHo) } )" class="btn btn-danger"> Xóa Giỏ Hàng</a></td>
+
+
+                            <td><button type="submit" class="btn btn-info">Cập Nhật</button></td>
+                        }
+                    </tr>
+                }
+                <tr style="font-weight:bold;text-align:right;color :red">
+                    <td colspan="3">Số lượng :@ViewBag.Tongsoluong </td>
+                    <td colspan="3">Tổng tiền : @ViewBag.Tongtien,000 VNĐ</td>
+                </tr>
+                <tr style="font-weight:bold;text-align:left;color :blue" class="odd gradeX">
+                    <td colspan="9">
+                        <a href="@Url.Action("Index", "BanDongHo") " class="btn btn-success">
+                            Chọn Thêm Sản Phẩm
+                        </a>
+                        <a href="@Url.Action("XoaTatCaHang", "GioHang")" class="btn btn-danger">Xóa Tất Cả Giỏ Hàng </a>
+                    </td>
+
+                </tr>
+                <tr style="font-weight:bold;text-align:center;color :blue">
+                    <td colspan="9">
+                        <a href="@Url.Action("DatHang", "GioHang") " class="btn btn-success">
+                            Đặt Hàng
+                        </a>
+                    </td>
+                </tr>
+
+
+            </tbody>
+        </table>
+    </div>
+    <h3>Hướng dẫn mua hàng :</h3>
+    <p>- Sau khi kiểm tra "Thông tin giỏ hàng" quý khách nhấn vào nút "Đặt Hàng" để chúng tôi nắm được thông tin đơn hàng của quý khách . </p>
+    <p>- Trang Đăng Nhập tài khoản của quý khách sẽ hiện ra ngay sau khi quý khách nhấn nút "Đặt Hàng" nếu quý khách chưa tiến hành Đăng Nhập vào tài khoản của mình . </p>
+    <p>- Chúng tôi sẽ phục vụ với thái độ tốt nhất ngay sau khi nhận được đơn hàng của quý khách . </p>
+    <strong>
+        Xin chân thành cảm ơn sự ủng hộ của quý khách !
+    </strong>
+</div>
+

@@ -1,0 +1,93 @@
+﻿
+@{
+    ViewBag.Title = "Deletedonghonam";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+@*<h2>Delete</h2>*@
+@*<fieldset>
+        <legend>Fields</legend>
+        <div class="display-lable"> Mã đồng hồ :@Model.MaDongHo</div>
+        <div class="display-lable"> Mã màu :@Model.MaMau</div>
+        <div class="display-lable"> Mã chất liệu :@Model.MaChatLieu</div>
+        <div class="display-lable"> Mã nhà sản xuất :@Model.MaNhaSanXuat</div>
+        <div class="display-lable"> Mã loại :@Model.MaLoai</div>
+        <div class="display-lable"> Tên mặt hàng :@Model.TenDongHo</div>
+        <div class="display-lable"> <img src="~/Hinhsanpham/@Model.HinhAnh" style="width:200px;height:200px" /></div>
+        <div class="display-lable"> Mô tả:@Model.MoTa</div>
+        <div class="display-lable"> Giá:@Model.GiaBan</div>
+        <div class="display-lable"> Ngày cập nhật:@Model.NgayCapNhat</div>
+    </fieldset>*@
+
+<legend><font color=red>  Bạn có thật sư muốn xóa!</font></legend>
+<div class="col-sm-4 col-lg-4 col-md-4" style="text-align:left">
+    <div class="thumbnail">
+        <img alt="@Model.TenDongHo" src="~/Hinhsanpham/@Model.HinhAnh" height="300" width="330" />
+    </div>
+    @*<div class="thumbnail">*@
+    <div id="Mota" class="tab-pane fade in active">
+        @*Mô tả: @Model.MoTa*@
+        <p style="text-align:justify"><span style="font-weight:bold">Mô tả: </span>@Model.MoTa</p>
+
+    </div>
+</div>
+<div>
+    @*<h3 style="text-align:left">
+            Thông Tin Sản Phẩm
+        </h3>*@
+    <br />
+    <h4 style="text-align:left">
+        Mã đồng hồ: @Model.MaDongHo
+
+    </h4>
+    <h4 style="text-align:left">
+        Tên đồng hồ: @Model.TenDongHo
+
+    </h4>
+    <h4 style="text-align:left">
+        Thương hiệu :@Model.NhaSanXuat.TenNhaSanXuat
+
+    </h4>
+    <h4 style="text-align:left">
+        @Model.LoaiDongHo.TenLoai
+        @Model.LoaiDongHo.MaLoai
+    </h4>
+    <hr />
+
+</div>
+<div>
+    <h4 style="text-align: left ">
+        Màu:
+        @Model.MauSac.TenMau
+        @*<br />
+            Chất liệu:
+            @Model.ChatLieu.TenChatLieu
+            <br />
+            Ngày cập nhật:
+            @Model.NgayCapNhat
+        *@
+    </h4>
+    <h4 style="text-align: left ">
+        Chất liệu:
+        @Model.ChatLieu.TenChatLieu
+    </h4>
+    <h4 style="text-align: left ">
+        Ngày cập nhật:
+        @Model.NgayCapNhat
+    </h4>
+    <p></p>
+
+    <h4 style="text-align: left ; color: #FF0000">
+        Giá  @Model.GiaBan VNĐ
+    </h4>
+    @using (Html.BeginForm())
+    {
+        <p>
+            <button type="submit" class="btn btn-danger">Xóa</button>
+            <a href="@Url.Action("donghonam","QuanLyDongHo")" class="btn btn-primary">
+                Trở Về
+            </a>
+        </p>
+    }
+
+</div>
