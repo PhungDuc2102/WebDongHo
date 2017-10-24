@@ -13,6 +13,7 @@ using WebBanDongHo.Models;
 namespace WebBanDongHo.Controllers
 {
     [Authorize]
+    //
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
