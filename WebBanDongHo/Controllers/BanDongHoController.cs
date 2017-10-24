@@ -9,6 +9,7 @@ using PagedList.Mvc;
 
 namespace WebBanDongHo.Controllers
 {
+    
     public class BanDongHoController : Controller
     {
         // GET: BanDongHo
